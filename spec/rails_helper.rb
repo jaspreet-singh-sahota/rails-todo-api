@@ -11,7 +11,15 @@ require 'database_cleaner'
 require "shoulda/matchers"
 # require "shoulda/matchers/integrations/rspec"
 
-
+# spec/rails_helper.rb
+# [...]
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+# [...]
+RSpec.configuration do |config|
+  # [...]
+  config.include RequestSpecHelper, type: :request
+  # [...]
+end
 # [...]
 # configure shoulda matchers to use rspec as the test framework and full matcher libraries for rails
 Shoulda::Matchers.configure do |config|
@@ -20,6 +28,7 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
 
 # [...]
 RSpec.configure do |config|

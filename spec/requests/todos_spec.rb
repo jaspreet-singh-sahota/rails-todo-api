@@ -13,7 +13,7 @@ RSpec.describe 'Todos API', type: :request do
 
     it 'returns todos' do
       # Note `JSON` is a custom helper to parse JSON responses
-      expect(JSON).not_to be_empty
+      expect(:json).not_to be_empty
       expect(JSON.size).to eq(10)
     end
 

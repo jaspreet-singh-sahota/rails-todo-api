@@ -1,7 +1,7 @@
 # spec/requests/items_spec.rb
 require 'rails_helper'
 
-RSpec.describe 'Items API' do
+RSpec.describe 'Items API', type: :request do
   # Initialize the test data
   let!(:todo) { create(:todo) }
   let!(:items) { create_list(:item, 20, todo_id: todo.id) }
